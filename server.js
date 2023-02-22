@@ -4,6 +4,11 @@ const cors = require('cors');
 const path = require('path');
 const bodyParser = require('body-parser');
 const multer = require('multer');
+const dotenv = require('dotenv');
+
+dotenv.config({path:"../config.env"});
+const port = process.env.PORT;
+
 require('./database/connection');
 
 const Book = require('./model/bookModel');
@@ -52,6 +57,6 @@ app.post('/add_book', async (req, res) => {
     }
 })
 
-app.listen(5000, () => {
-    console.log('listening at port 5000');
+app.listen(port, () => {
+    console.log(`listening at port ${port}`);
 })
