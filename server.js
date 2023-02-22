@@ -49,6 +49,7 @@ app.post('/add_book', async (req, res) => {
             pages: req.body.pages,
             price: req.body.price,
             publisher: req.body.publisher,
+            version : req.body.version
         });
         const result = await data.save();
         res.status(201).json({ message: "book added", data: result });
